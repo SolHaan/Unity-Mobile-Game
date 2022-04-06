@@ -1,19 +1,19 @@
 m_ProjectFiles:
   m_ManifestFileStatus:
-    m_FilePath: D:/U.Project/GitHub/Unity-Mobile-Game/MobileGame/Packages/manifest.json
+    m_FilePath: C:/Users/82109/Documents/GitHub/Unity-Mobile-Game/MobileGame/Packages/manifest.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637846358928392654
-    m_Hash: 1289630939
+      ticks: 637848150328072862
+    m_Hash: 4101599471
   m_LockFileStatus:
-    m_FilePath: D:/U.Project/GitHub/Unity-Mobile-Game/MobileGame/Packages/packages-lock.json
+    m_FilePath: C:/Users/82109/Documents/GitHub/Unity-Mobile-Game/MobileGame/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637846359051909086
+      ticks: 637848152289263717
     m_Hash: 919429424
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
@@ -25,7 +25,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 5.0.3
       source: 1
-      resolvedPath: D:\U.Project\GitHub\Unity-Mobile-Game\MobileGame\Library\PackageCache\com.unity.2d.animation@5.0.3
+      resolvedPath: C:\Users\82109\Documents\GitHub\Unity-Mobile-Game\MobileGame\Library\PackageCache\com.unity.2d.animation@5.0.3
       assetPath: Packages/com.unity.2d.animation
       name: com.unity.2d.animation
       displayName: 2D Animation
@@ -77,13 +77,6 @@ m_PackageAssets:
         - 3.2.5
         - 3.2.6
         - 3.2.9
-        - 3.2.10
-        - 3.2.11
-        - 3.2.13
-        - 3.2.14
-        - 3.2.15
-        - 3.2.16
-        - 3.2.17
         - 4.0.0
         - 4.0.1
         - 4.1.0
@@ -102,41 +95,18 @@ m_PackageAssets:
         - 5.0.4
         - 5.0.5
         - 5.0.6
-        - 5.0.7
-        - 5.0.8
-        - 5.0.9
-        - 5.0.10
-        - 5.1.0
-        - 5.1.1
-        - 5.2.0
         - 6.0.0-pre.1
         - 6.0.0-pre.2
         - 6.0.1
         - 6.0.3
         - 6.0.4
-        - 6.0.5
-        - 6.0.7
         - 7.0.0-pre.2
-        - 7.0.0-pre.3
-        - 7.0.0
-        - 7.0.1
-        - 7.0.2
-        - 7.0.3
-        - 7.0.4
-        - 8.0.0-pre.3
-        - 8.0.0-pre.4
-        - 8.0.0
-        - 8.0.1
         compatible:
         - 5.0.3
         - 5.0.4
         - 5.0.5
         - 5.0.6
-        - 5.0.7
-        - 5.0.8
-        - 5.0.9
-        - 5.0.10
-        verified: 5.0.10
+        verified: 5.0.6
       dependencies:
       - name: com.unity.2d.common
         version: 4.0.3
@@ -195,7 +165,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 4.0.1
       source: 1
-      resolvedPath: D:\U.Project\GitHub\Unity-Mobile-Game\MobileGame\Library\PackageCache\com.unity.2d.pixel-perfect@4.0.1
+      resolvedPath: C:\Users\82109\Documents\GitHub\Unity-Mobile-Game\MobileGame\Library\PackageCache\com.unity.2d.pixel-perfect@4.0.1
       assetPath: Packages/com.unity.2d.pixel-perfect
       name: com.unity.2d.pixel-perfect
       displayName: 2D Pixel Perfect
@@ -234,7 +204,6 @@ m_PackageAssets:
         - 5.0.0-pre.1
         - 5.0.0-pre.2
         - 5.0.0
-        - 5.0.1
         compatible:
         - 4.0.1
         verified: 4.0.1
@@ -270,7 +239,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 4.0.2
       source: 1
-      resolvedPath: D:\U.Project\GitHub\Unity-Mobile-Game\MobileGame\Library\PackageCache\com.unity.2d.psdimporter@4.0.2
+      resolvedPath: C:\Users\82109\Documents\GitHub\Unity-Mobile-Game\MobileGame\Library\PackageCache\com.unity.2d.psdimporter@4.0.2
       assetPath: Packages/com.unity.2d.psdimporter
       name: com.unity.2d.psdimporter
       displayName: 2D PSD Importer
@@ -308,9 +277,6 @@ m_PackageAssets:
         - 2.1.5
         - 2.1.6
         - 2.1.8
-        - 2.1.9
-        - 2.1.10
-        - 2.1.11
         - 3.0.0
         - 3.1.1
         - 3.1.3
@@ -322,27 +288,13 @@ m_PackageAssets:
         - 4.0.1
         - 4.0.2
         - 4.1.0
-        - 4.1.1
-        - 4.1.2
-        - 4.1.3
-        - 4.2.0
-        - 4.3.0
         - 5.0.0-pre.1
         - 5.0.0-pre.2
         - 5.0.1
         - 5.0.3
         - 5.0.4
-        - 5.0.6
         - 6.0.0-pre.2
         - 6.0.0-pre.3
-        - 6.0.0-pre.4
-        - 6.0.0
-        - 6.0.1
-        - 6.0.2
-        - 6.0.3
-        - 7.0.0-pre.3
-        - 7.0.0-pre.4
-        - 7.0.0
         compatible:
         - 4.0.2
         verified: 4.0.2
@@ -454,7 +406,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 5.1.0
       source: 1
-      resolvedPath: D:\U.Project\GitHub\Unity-Mobile-Game\MobileGame\Library\PackageCache\com.unity.2d.spriteshape@5.1.0
+      resolvedPath: C:\Users\82109\Documents\GitHub\Unity-Mobile-Game\MobileGame\Library\PackageCache\com.unity.2d.spriteshape@5.1.0
       assetPath: Packages/com.unity.2d.spriteshape
       name: com.unity.2d.spriteshape
       displayName: 2D SpriteShape
@@ -502,8 +454,6 @@ m_PackageAssets:
         - 3.0.14
         - 3.0.15
         - 3.0.16
-        - 3.0.17
-        - 3.0.18
         - 4.0.0
         - 4.0.1
         - 4.0.2
@@ -521,36 +471,18 @@ m_PackageAssets:
         - 5.1.1
         - 5.1.2
         - 5.1.3
-        - 5.1.4
-        - 5.1.5
-        - 5.1.6
-        - 5.1.7
-        - 5.2.0
-        - 5.3.0
         - 6.0.0-pre.1
         - 6.0.0-pre.2
         - 6.0.0
         - 6.0.1
-        - 6.0.2
         - 7.0.0-pre.2
         - 7.0.0-pre.3
-        - 7.0.0
-        - 7.0.2
-        - 7.0.3
-        - 7.0.4
-        - 8.0.0-pre.4
-        - 8.0.0-pre.5
-        - 8.0.0
         compatible:
         - 5.1.0
         - 5.1.1
         - 5.1.2
         - 5.1.3
-        - 5.1.4
-        - 5.1.5
-        - 5.1.6
-        - 5.1.7
-        verified: 5.1.7
+        verified: 5.1.3
       dependencies:
       - name: com.unity.mathematics
         version: 1.1.0
@@ -663,7 +595,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.3.9
       source: 1
-      resolvedPath: D:\U.Project\GitHub\Unity-Mobile-Game\MobileGame\Library\PackageCache\com.unity.collab-proxy@1.3.9
+      resolvedPath: C:\Users\82109\Documents\GitHub\Unity-Mobile-Game\MobileGame\Library\PackageCache\com.unity.collab-proxy@1.3.9
       assetPath: Packages/com.unity.collab-proxy
       name: com.unity.collab-proxy
       displayName: Unity Collaborate
@@ -699,28 +631,6 @@ m_PackageAssets:
         - 1.3.9
         - 1.4.9
         - 1.5.7
-        - 1.6.0
-        - 1.7.1
-        - 1.8.0
-        - 1.9.0
-        - 1.10.2
-        - 1.11.2
-        - 1.12.5
-        - 1.13.5
-        - 1.14.1
-        - 1.14.4
-        - 1.14.7
-        - 1.14.9
-        - 1.14.12
-        - 1.14.13
-        - 1.14.15
-        - 1.15.1
-        - 1.15.4
-        - 1.15.7
-        - 1.15.9
-        - 1.15.12
-        - 1.15.13
-        - 1.15.15
         - 2.0.0-preview.6
         - 2.0.0-preview.8
         - 2.0.0-preview.15
@@ -735,17 +645,6 @@ m_PackageAssets:
         - 1.3.9
         - 1.4.9
         - 1.5.7
-        - 1.6.0
-        - 1.8.0
-        - 1.10.2
-        - 1.12.5
-        - 1.14.1
-        - 1.14.4
-        - 1.14.7
-        - 1.14.9
-        - 1.14.12
-        - 1.14.13
-        - 1.14.15
         - 2.0.0-preview.6
         - 2.0.0-preview.8
         - 2.0.0-preview.15
@@ -795,7 +694,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 2.0.7
       source: 1
-      resolvedPath: D:\U.Project\GitHub\Unity-Mobile-Game\MobileGame\Library\PackageCache\com.unity.ide.rider@2.0.7
+      resolvedPath: C:\Users\82109\Documents\GitHub\Unity-Mobile-Game\MobileGame\Library\PackageCache\com.unity.ide.rider@2.0.7
       assetPath: Packages/com.unity.ide.rider
       name: com.unity.ide.rider
       displayName: JetBrains Rider Editor
@@ -837,10 +736,6 @@ m_PackageAssets:
         - 3.0.5
         - 3.0.6
         - 3.0.7
-        - 3.0.9
-        - 3.0.10
-        - 3.0.12
-        - 3.0.13
         compatible:
         - 1.0.2
         - 1.0.6
@@ -867,10 +762,6 @@ m_PackageAssets:
         - 3.0.5
         - 3.0.6
         - 3.0.7
-        - 3.0.9
-        - 3.0.10
-        - 3.0.12
-        - 3.0.13
         verified: 2.0.7
       dependencies:
       - name: com.unity.test-framework
@@ -910,7 +801,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 2.0.5
       source: 1
-      resolvedPath: D:\U.Project\GitHub\Unity-Mobile-Game\MobileGame\Library\PackageCache\com.unity.ide.visualstudio@2.0.5
+      resolvedPath: C:\Users\82109\Documents\GitHub\Unity-Mobile-Game\MobileGame\Library\PackageCache\com.unity.ide.visualstudio@2.0.5
       assetPath: Packages/com.unity.ide.visualstudio
       name: com.unity.ide.visualstudio
       displayName: Visual Studio Editor
@@ -941,10 +832,6 @@ m_PackageAssets:
         - 2.0.7
         - 2.0.8
         - 2.0.9
-        - 2.0.11
-        - 2.0.12
-        - 2.0.14
-        - 2.0.15
         compatible:
         - 1.0.2
         - 1.0.3
@@ -960,11 +847,7 @@ m_PackageAssets:
         - 2.0.7
         - 2.0.8
         - 2.0.9
-        - 2.0.11
-        - 2.0.12
-        - 2.0.14
-        - 2.0.15
-        verified: 2.0.15
+        verified: 2.0.9
       dependencies: []
       resolvedDependencies: []
       keywords: []
@@ -993,7 +876,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.2.3
       source: 1
-      resolvedPath: D:\U.Project\GitHub\Unity-Mobile-Game\MobileGame\Library\PackageCache\com.unity.ide.vscode@1.2.3
+      resolvedPath: C:\Users\82109\Documents\GitHub\Unity-Mobile-Game\MobileGame\Library\PackageCache\com.unity.ide.vscode@1.2.3
       assetPath: Packages/com.unity.ide.vscode
       name: com.unity.ide.vscode
       displayName: Visual Studio Code Editor
@@ -1021,8 +904,6 @@ m_PackageAssets:
         - 1.2.1
         - 1.2.2
         - 1.2.3
-        - 1.2.4
-        - 1.2.5
         compatible:
         - 1.0.2
         - 1.0.3
@@ -1035,9 +916,7 @@ m_PackageAssets:
         - 1.2.1
         - 1.2.2
         - 1.2.3
-        - 1.2.4
-        - 1.2.5
-        verified: 1.2.5
+        verified: 1.2.3
       dependencies: []
       resolvedDependencies: []
       keywords: []
@@ -1066,7 +945,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.1.20
       source: 1
-      resolvedPath: D:\U.Project\GitHub\Unity-Mobile-Game\MobileGame\Library\PackageCache\com.unity.test-framework@1.1.20
+      resolvedPath: C:\Users\82109\Documents\GitHub\Unity-Mobile-Game\MobileGame\Library\PackageCache\com.unity.test-framework@1.1.20
       assetPath: Packages/com.unity.test-framework
       name: com.unity.test-framework
       displayName: Test Framework
@@ -1111,23 +990,13 @@ m_PackageAssets:
         - 1.1.24
         - 1.1.26
         - 1.1.27
-        - 1.1.29
-        - 1.1.30
-        - 1.1.31
-        - 2.0.1-pre.12
-        - 2.0.1-pre.18
         compatible:
         - 1.1.20
         - 1.1.22
         - 1.1.24
         - 1.1.26
         - 1.1.27
-        - 1.1.29
-        - 1.1.30
-        - 1.1.31
-        - 2.0.1-pre.12
-        - 2.0.1-pre.18
-        verified: 1.1.31
+        verified: 1.1.27
       dependencies:
       - name: com.unity.ext.nunit
         version: 1.0.6
@@ -1170,7 +1039,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 3.0.1
       source: 1
-      resolvedPath: D:\U.Project\GitHub\Unity-Mobile-Game\MobileGame\Library\PackageCache\com.unity.textmeshpro@3.0.1
+      resolvedPath: C:\Users\82109\Documents\GitHub\Unity-Mobile-Game\MobileGame\Library\PackageCache\com.unity.textmeshpro@3.0.1
       assetPath: Packages/com.unity.textmeshpro
       name: com.unity.textmeshpro
       displayName: TextMeshPro
@@ -1243,7 +1112,6 @@ m_PackageAssets:
         - 1.5.4
         - 1.5.5
         - 1.5.6
-        - 1.6.0-preview.1
         - 2.0.0
         - 2.0.1-preview.1
         - 2.0.1
@@ -1265,9 +1133,6 @@ m_PackageAssets:
         - 2.1.4
         - 2.1.5
         - 2.1.6
-        - 2.2.0-preview.1
-        - 2.2.0-preview.2
-        - 2.2.0-preview.3
         - 3.0.0-preview.1
         - 3.0.0-preview.3
         - 3.0.0-preview.4
@@ -1285,10 +1150,6 @@ m_PackageAssets:
         - 3.0.4
         - 3.0.5
         - 3.0.6
-        - 3.2.0-pre.1
-        - 3.2.0-pre.2
-        - 3.2.0-pre.3
-        - 4.0.0-pre.1
         compatible:
         - 3.0.1
         - 3.0.3
@@ -1337,7 +1198,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.4.6
       source: 1
-      resolvedPath: D:\U.Project\GitHub\Unity-Mobile-Game\MobileGame\Library\PackageCache\com.unity.timeline@1.4.6
+      resolvedPath: C:\Users\82109\Documents\GitHub\Unity-Mobile-Game\MobileGame\Library\PackageCache\com.unity.timeline@1.4.6
       assetPath: Packages/com.unity.timeline
       name: com.unity.timeline
       displayName: Timeline
@@ -1412,19 +1273,11 @@ m_PackageAssets:
         - 1.5.4
         - 1.5.5
         - 1.5.6
-        - 1.5.7
         - 1.6.0-pre.1
         - 1.6.0-pre.3
         - 1.6.0-pre.4
         - 1.6.0-pre.5
         - 1.6.1
-        - 1.6.2
-        - 1.6.3
-        - 1.6.4
-        - 1.7.0-pre.1
-        - 1.7.0-pre.2
-        - 1.7.0
-        - 1.7.1
         compatible:
         - 1.2.6
         - 1.2.7
@@ -1479,19 +1332,11 @@ m_PackageAssets:
         - 1.5.4
         - 1.5.5
         - 1.5.6
-        - 1.5.7
         - 1.6.0-pre.1
         - 1.6.0-pre.3
         - 1.6.0-pre.4
         - 1.6.0-pre.5
         - 1.6.1
-        - 1.6.2
-        - 1.6.3
-        - 1.6.4
-        - 1.7.0-pre.1
-        - 1.7.0-pre.2
-        - 1.7.0
-        - 1.7.1
         verified: 1.4.8
       dependencies:
       - name: com.unity.modules.director
@@ -3347,7 +3192,7 @@ m_PackageAssets:
       isDirectDependency: 0
       version: 1.0.6
       source: 1
-      resolvedPath: D:\U.Project\GitHub\Unity-Mobile-Game\MobileGame\Library\PackageCache\com.unity.ext.nunit@1.0.6
+      resolvedPath: C:\Users\82109\Documents\GitHub\Unity-Mobile-Game\MobileGame\Library\PackageCache\com.unity.ext.nunit@1.0.6
       assetPath: Packages/com.unity.ext.nunit
       name: com.unity.ext.nunit
       displayName: Custom NUnit
@@ -3369,7 +3214,6 @@ m_PackageAssets:
         - 1.0.0
         - 1.0.5
         - 1.0.6
-        - 2.0.2
         compatible:
         - 0.1.5-preview
         - 0.1.6-preview
@@ -3377,7 +3221,6 @@ m_PackageAssets:
         - 1.0.0
         - 1.0.5
         - 1.0.6
-        - 2.0.2
         verified: 1.0.6
       dependencies: []
       resolvedDependencies: []
@@ -3410,7 +3253,7 @@ m_PackageAssets:
       isDirectDependency: 0
       version: 1.1.0
       source: 1
-      resolvedPath: D:\U.Project\GitHub\Unity-Mobile-Game\MobileGame\Library\PackageCache\com.unity.mathematics@1.1.0
+      resolvedPath: C:\Users\82109\Documents\GitHub\Unity-Mobile-Game\MobileGame\Library\PackageCache\com.unity.mathematics@1.1.0
       assetPath: Packages/com.unity.mathematics
       name: com.unity.mathematics
       displayName: Mathematics
@@ -3440,9 +3283,6 @@ m_PackageAssets:
         - 1.1.0-preview.1
         - 1.1.0
         - 1.2.1
-        - 1.2.4
-        - 1.2.5
-        - 1.2.6
         compatible:
         - 0.0.12-preview.2
         - 0.0.12-preview.5
@@ -3458,10 +3298,7 @@ m_PackageAssets:
         - 1.1.0-preview.1
         - 1.1.0
         - 1.2.1
-        - 1.2.4
-        - 1.2.5
-        - 1.2.6
-        verified: 1.2.6
+        verified: 1.2.1
       dependencies: []
       resolvedDependencies: []
       keywords:
@@ -3491,7 +3328,7 @@ m_PackageAssets:
       isDirectDependency: 0
       version: 4.0.3
       source: 1
-      resolvedPath: D:\U.Project\GitHub\Unity-Mobile-Game\MobileGame\Library\PackageCache\com.unity.2d.common@4.0.3
+      resolvedPath: C:\Users\82109\Documents\GitHub\Unity-Mobile-Game\MobileGame\Library\PackageCache\com.unity.2d.common@4.0.3
       assetPath: Packages/com.unity.2d.common
       name: com.unity.2d.common
       displayName: 2D Common
@@ -3517,35 +3354,21 @@ m_PackageAssets:
         - 2.0.1
         - 2.0.2
         - 2.1.0
-        - 2.1.1
-        - 2.1.2
         - 3.0.0
         - 3.0.1
         - 4.0.0
         - 4.0.1
         - 4.0.2
         - 4.0.3
-        - 4.0.4
-        - 4.1.0
-        - 4.2.0
         - 5.0.0-pre.1
         - 5.0.0-pre.2
         - 5.0.0
         - 6.0.0-pre.2
         - 6.0.0-pre.3
-        - 6.0.0-pre.4
-        - 6.0.0
-        - 6.0.1
-        - 6.0.2
-        - 6.0.3
-        - 7.0.0-pre.3
-        - 7.0.0-pre.4
-        - 7.0.0
         compatible:
         - 4.0.2
         - 4.0.3
-        - 4.0.4
-        verified: 4.0.4
+        verified: 4.0.3
       dependencies:
       - name: com.unity.2d.sprite
         version: 1.0.0
@@ -3591,7 +3414,7 @@ m_PackageAssets:
       isDirectDependency: 0
       version: 4.0.1
       source: 1
-      resolvedPath: D:\U.Project\GitHub\Unity-Mobile-Game\MobileGame\Library\PackageCache\com.unity.2d.path@4.0.1
+      resolvedPath: C:\Users\82109\Documents\GitHub\Unity-Mobile-Game\MobileGame\Library\PackageCache\com.unity.2d.path@4.0.1
       assetPath: Packages/com.unity.2d.path
       name: com.unity.2d.path
       displayName: 2D Path
@@ -3616,22 +3439,17 @@ m_PackageAssets:
         - 2.0.5
         - 2.0.6
         - 2.1.0
-        - 2.1.1
         - 3.0.0
         - 3.0.1
         - 3.0.2
         - 4.0.0
         - 4.0.1
-        - 4.0.2
         - 5.0.0-pre.1
         - 5.0.0-pre.2
         - 5.0.0
-        - 5.0.1
-        - 5.0.2
         compatible:
         - 4.0.1
-        - 4.0.2
-        verified: 4.0.2
+        verified: 4.0.1
       dependencies: []
       resolvedDependencies: []
       keywords:
@@ -3659,5 +3477,5 @@ m_PackageAssets:
         path: 
   m_LocalPackages:
     m_LocalFileStatus: []
-m_ProjectPath: D:/U.Project/GitHub/Unity-Mobile-Game/MobileGame/Packages
+m_ProjectPath: C:/Users/82109/Documents/GitHub/Unity-Mobile-Game/MobileGame/Packages
 m_EditorVersion: 2020.2.4f1 (becced5a802b)

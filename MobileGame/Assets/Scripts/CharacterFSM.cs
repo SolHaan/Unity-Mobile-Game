@@ -21,7 +21,7 @@ public class CharacterFSM : MonoBehaviour
     protected virtual void Awake()
     {
         //characterBase = GetComponent<>
-        playerController = GameManager.I.player;
+        playerController = GameManager.Instance.player;
     }
 
     protected virtual void OnEnable()
