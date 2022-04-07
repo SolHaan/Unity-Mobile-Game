@@ -25,7 +25,7 @@ public class Menu : MonoBehaviour
                 DataManager.Instance.nowSlot = i; //슬롯을 가져옴
                 DataManager.Instance.LoadData();
 
-                slotText[i].text = DataManager.Instance.nowPlayer.name + ", " + DateTime.Now.ToString(); //이 뒤에 시간도 표시가능
+                slotText[i].text = DataManager.Instance.nowPlayer.playerName + ", " + DateTime.Now.ToString(); //이 뒤에 시간도 표시가능
             }
             else //존재안함
             {
@@ -60,7 +60,7 @@ public class Menu : MonoBehaviour
     {
         if(!saveFile[DataManager.Instance.nowSlot]) //저장된게 없다면
         {
-            DataManager.Instance.nowPlayer.name = newPlayerName.text; //덧씌움
+            DataManager.Instance.nowPlayer.playerName = newPlayerName.text; //덧씌움
             DataManager.Instance.SaveData(); //한번 더 저장
         }
 
