@@ -58,7 +58,6 @@
     <Compile Include="Assets\Scripts\SceneController.cs" />
     <Compile Include="Assets\Scripts\Test.cs" />
     <Compile Include="Assets\Scripts\Singleton.cs" />
-    <Compile Include="Assets\AssetsModel\Hero Knight - Pixel Art\Demo\Sensor_HeroKnight.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\MenuScripts\Menu.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
@@ -67,13 +66,13 @@
     <Compile Include="Assets\Scripts\MenuScripts\UIController.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Interface\IInteraction.cs" />
-    <Compile Include="Assets\AssetsModel\Hero Knight - Pixel Art\Demo\HeroKnight.cs" />
     <Compile Include="Assets\Scripts\EnemyController.cs" />
     <Compile Include="Assets\Scripts\Test2.cs" />
-    <Compile Include="Assets\AssetsModel\Hero Knight - Pixel Art\ColorSwap\ColorSwap_HeroKnight.cs" />
-    <Compile Include="Assets\AssetsModel\Hero Knight - Pixel Art\Demo\DestroyEvent_HeroKnight.cs" />
-    <Compile Include="Assets\Scripts\DropItem.cs" />
     <Compile Include="Assets\Scripts\PlayerData.cs" />
+    <Compile Include="Assets\AssetsModel\Hero Knight - Pixel Art\ColorSwap\ColorSwap_HeroKnight.cs" />
+    <Compile Include="Assets\Scripts\DropItem.cs" />
+    <Compile Include="Assets\Scripts\Joystick.cs" />
+    <Compile Include="Assets\Scripts\InputManager.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\AssetsModel\Hero Knight - Pixel Art\ColorSwap\Sprites-ColorSwap.shader" />

@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    Transform target;
+
+    public float speed;
+
+    public float minX, maxX, minY, maxY;
+
+    void Awake()
     {
-        
+        target = FindObjectOfType<PlayerController>().transform;
+        //transform.position = target.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if(target != null)
+        {
+            float clampedX = Mathf.Clamp(target.position.x, minX, maxX);
+            float clampedY = Mathf.Clamp(target.position.y, minY, maxY);
+
+            transform.position = Vector3.Lerp(new Vector3(transform.position.x, transform.position.y, -10), new Vector3(clampedX, clampedY, -10), speed);
+        }
     }
 }

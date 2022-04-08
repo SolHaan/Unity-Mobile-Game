@@ -46,7 +46,7 @@ public class CharacterFSM : MonoBehaviour
             isNewState = true;
             state = newState;
 
-
+            playerController.anim.SetInteger("state", (int)state);
         }
     }
 }
