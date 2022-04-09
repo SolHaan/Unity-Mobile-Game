@@ -53,26 +53,25 @@
     <UnityVersion>2020.2.4f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\MenuScripts\DataManager.cs" />
-    <Compile Include="Assets\Scripts\CharacterFSM.cs" />
-    <Compile Include="Assets\Scripts\SceneController.cs" />
-    <Compile Include="Assets\Scripts\Test.cs" />
+    <Compile Include="Assets\Scripts\Environment\DataManager.cs" />
+    <Compile Include="Assets\Scripts\Environment\SceneController.cs" />
     <Compile Include="Assets\Scripts\Singleton.cs" />
-    <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Environment\CameraController.cs" />
     <Compile Include="Assets\Scripts\MenuScripts\Menu.cs" />
-    <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\GameScripts\Player\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Environment\InputManager.cs" />
     <Compile Include="Assets\Scripts\Interface\IItem.cs" />
     <Compile Include="Assets\Scripts\GameScripts\DBManager.cs" />
     <Compile Include="Assets\Scripts\MenuScripts\UIController.cs" />
-    <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Environment\GameManager.cs" />
     <Compile Include="Assets\Scripts\Interface\IInteraction.cs" />
-    <Compile Include="Assets\Scripts\EnemyController.cs" />
-    <Compile Include="Assets\Scripts\Test2.cs" />
-    <Compile Include="Assets\Scripts\PlayerData.cs" />
+    <Compile Include="Assets\Scripts\GameScripts\EnemyController.cs" />
+    <Compile Include="Assets\Scripts\MenuScripts\PlayerData.cs" />
     <Compile Include="Assets\AssetsModel\Hero Knight - Pixel Art\ColorSwap\ColorSwap_HeroKnight.cs" />
     <Compile Include="Assets\Scripts\DropItem.cs" />
-    <Compile Include="Assets\Scripts\Joystick.cs" />
-    <Compile Include="Assets\Scripts\InputManager.cs" />
+    <Compile Include="Assets\Scripts\UI\Joystick.cs" />
+    <Compile Include="Assets\Scripts\GameScripts\Player\Effect.cs" />
+    <Compile Include="Assets\Scripts\GameScripts\Player\AttackZone.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\AssetsModel\Hero Knight - Pixel Art\ColorSwap\Sprites-ColorSwap.shader" />

@@ -10,14 +10,14 @@ public class UIController : MonoBehaviour
     public Slider maxHp;
     public Slider curHp;
 
-    PlayerController player;
+    GameObject player;
 
     Vector3 checkPos;
     //public Text coin; //추후 상점도입하면 넣을 예정
 
     void Awake()
     {
-        player = FindObjectOfType<PlayerController>();
+        player = GameManager.Instance.player;
     }
 
     void Start()
