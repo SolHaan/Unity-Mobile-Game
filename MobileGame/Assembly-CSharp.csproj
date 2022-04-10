@@ -59,9 +59,11 @@
     <Compile Include="Assets\Scripts\Environment\CameraController.cs" />
     <Compile Include="Assets\Scripts\MenuScripts\Menu.cs" />
     <Compile Include="Assets\Scripts\GameScripts\Player\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\GameScripts\Player\AttackZone.cs" />
     <Compile Include="Assets\Scripts\Environment\InputManager.cs" />
     <Compile Include="Assets\Scripts\Interface\IItem.cs" />
     <Compile Include="Assets\Scripts\GameScripts\DBManager.cs" />
+    <Compile Include="Assets\Scripts\GameScripts\Player\Effect.cs" />
     <Compile Include="Assets\Scripts\MenuScripts\UIController.cs" />
     <Compile Include="Assets\Scripts\Environment\GameManager.cs" />
     <Compile Include="Assets\Scripts\Interface\IInteraction.cs" />
@@ -70,8 +72,7 @@
     <Compile Include="Assets\AssetsModel\Hero Knight - Pixel Art\ColorSwap\ColorSwap_HeroKnight.cs" />
     <Compile Include="Assets\Scripts\DropItem.cs" />
     <Compile Include="Assets\Scripts\UI\Joystick.cs" />
-    <Compile Include="Assets\Scripts\GameScripts\Player\Effect.cs" />
-    <Compile Include="Assets\Scripts\GameScripts\Player\AttackZone.cs" />
+    <Compile Include="Assets\Scripts\Dialogue.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\AssetsModel\Hero Knight - Pixel Art\ColorSwap\Sprites-ColorSwap.shader" />
