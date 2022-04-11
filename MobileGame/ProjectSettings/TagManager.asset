@@ -45,11 +45,11 @@ TagManager:
   - name: Wall
     uniqueID: 745858731
     locked: 0
-  - name: Ground
-    uniqueID: 2650456955
-    locked: 0
   - name: Object
     uniqueID: 3710596701
+    locked: 0
+  - name: Ground
+    uniqueID: 2650456955
     locked: 0
   - name: Character
     uniqueID: 35492375
