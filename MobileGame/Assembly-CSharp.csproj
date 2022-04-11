@@ -55,24 +55,24 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Environment\DataManager.cs" />
     <Compile Include="Assets\Scripts\Environment\SceneController.cs" />
-    <Compile Include="Assets\Scripts\Singleton.cs" />
+    <Compile Include="Assets\Scripts\Environment\Singleton.cs" />
     <Compile Include="Assets\Scripts\Environment\CameraController.cs" />
-    <Compile Include="Assets\Scripts\MenuScripts\Menu.cs" />
+    <Compile Include="Assets\Scripts\UI\MenuScripts\Menu.cs" />
     <Compile Include="Assets\Scripts\GameScripts\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\GameScripts\Player\AttackZone.cs" />
     <Compile Include="Assets\Scripts\Environment\InputManager.cs" />
     <Compile Include="Assets\Scripts\Interface\IItem.cs" />
-    <Compile Include="Assets\Scripts\GameScripts\DBManager.cs" />
+    <Compile Include="Assets\Scripts\GameScripts\Dialogue\DBManager.cs" />
     <Compile Include="Assets\Scripts\GameScripts\Player\Effect.cs" />
-    <Compile Include="Assets\Scripts\MenuScripts\UIController.cs" />
-    <Compile Include="Assets\Scripts\Dialogue.cs" />
+    <Compile Include="Assets\Scripts\UI\MenuScripts\UIController.cs" />
+    <Compile Include="Assets\Scripts\GameScripts\Dialogue\Dialogue.cs" />
     <Compile Include="Assets\Scripts\Environment\GameManager.cs" />
     <Compile Include="Assets\Scripts\Interface\IInteraction.cs" />
-    <Compile Include="Assets\Scripts\GameScripts\EnemyController.cs" />
-    <Compile Include="Assets\Scripts\MenuScripts\PlayerData.cs" />
-    <Compile Include="Assets\Scripts\DropItem.cs" />
+    <Compile Include="Assets\Scripts\GameScripts\Monster\MonsterMove.cs" />
+    <Compile Include="Assets\Scripts\UI\MenuScripts\PlayerData.cs" />
+    <Compile Include="Assets\Scripts\Interface\DropItem.cs" />
     <Compile Include="Assets\Scripts\UI\Joystick.cs" />
-    <Compile Include="Assets\Scripts\MonsterMove.cs" />
+    <Compile Include="Assets\Scripts\GameScripts\Monster\MonsterCreate.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
