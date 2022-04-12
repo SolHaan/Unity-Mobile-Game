@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 4612533772435546826}
   - component: {fileID: 4612533772435546825}
   - component: {fileID: 4612533772435546824}
-  - component: {fileID: 4612533772435546820}
+  - component: {fileID: -2115353931682177142}
   m_Layer: 0
   m_Name: Monster02
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -152,7 +152,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.4, y: 1.5}
   m_EdgeRadius: 0
---- !u!114 &4612533772435546820
+--- !u!114 &-2115353931682177142
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,8 +161,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4612533772435546830}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82bd4ab7d9c31864da7f8c748b9fa7a8, type: 3}
+  m_Script: {fileID: 11500000, guid: f06f7d6469e75004ea216f4809c8bd13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
   damage: 20
+  monstercurHp: 40

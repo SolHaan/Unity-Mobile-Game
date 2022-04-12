@@ -22,13 +22,14 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rigid;
     SpriteRenderer playerRender;
     Animator anim;
-    public GameObject attackZone;
+    Transform[] allChilderen;
 
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
         playerRender = GetComponent<SpriteRenderer>();
         anim = GetComponentInChildren<Animator>();
+        allChilderen = GetComponentsInChildren<Transform>();
     }
 
     void Update()
@@ -40,8 +41,26 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 rightMovement = Vector3.right * speed * Time.deltaTime * InputManager.Instance.Movement.x;
 
-        if(InputManager.Instance.Movement.x < 0f) { playerRender.flipX = true; }
-        else if(InputManager.Instance.Movement.x > 0f) { playerRender.flipX = false; }
+        if(InputManager.Instance.Movement.x < 0f) {
+            playerRender.flipX = true;
+            foreach(Transform child in allChilderen)
+            {
+                if (child.name == transform.name)
+                    return;
+
+                child.GetComponent<SpriteRenderer>().flipX = true;
+            }
+        }
+        else if(InputManager.Instance.Movement.x > 0f) {
+            playerRender.flipX = false;
+            foreach (Transform child in allChilderen)
+            {
+                if (child.name == transform.name)
+                    return;
+
+                child.GetComponent<SpriteRenderer>().flipX = false;
+            }
+        }
 
         transform.position += rightMovement;
 
@@ -114,6 +133,24 @@ public class PlayerController : MonoBehaviour
         if(item != null)
         {
             item.Use();
+        }
+
+        if(collision.gameObject.tag == "Potal")
+        {
+            PotalController potal = collision.GetComponent<PotalController>();
+            potal.NextStage();
+        }
+
+        if (collision.gameObject.tag == "Enemy")
+        {
+
+        }
+
+        if (collision.gameObject.tag == "Monster")
+        {
+            MonsterDamage monster = collision.GetComponent<MonsterDamage>();
+            monster.playerDamage();
+            //collision.gameObject.GetComponent<MonsterDamage>().playerDamage();
         }
     }
 }

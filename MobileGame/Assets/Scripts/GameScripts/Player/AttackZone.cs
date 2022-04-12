@@ -4,8 +4,19 @@ using UnityEngine;
 
 public class AttackZone : MonoBehaviour
 {
-    void OnEnable()
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        //활성화 시 공격 데미지 들어감
+        if (collision.gameObject.tag == "Monster")
+        {
+            MonsterDamage col = collision.GetComponent<MonsterDamage>();
+            if (col.type == MonsterDamage.Type.M1 || col.type == MonsterDamage.Type.M2 || col.type == MonsterDamage.Type.M3)
+            {
+                //col.monstercurHp -= DataManager.Instance.nowPlayer.power;
+                col.GetComponent<SpriteRenderer>().color = Color.gray;
+
+                col.MonsterDead();
+            }
+        }
+        gameObject.SetActive(false);
     }
 }
