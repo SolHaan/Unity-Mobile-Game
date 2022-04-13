@@ -9006,6 +9006,7 @@ MonoBehaviour:
   speed: 4
   jumpHeight: 2.5
   attackBtn: {fileID: 2134774113}
+  playerChild: []
 --- !u!1 &1024753903
 GameObject:
   m_ObjectHideFlags: 0

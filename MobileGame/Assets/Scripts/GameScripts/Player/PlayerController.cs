@@ -22,14 +22,14 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rigid;
     SpriteRenderer playerRender;
     Animator anim;
-    Transform[] allChilderen;
+    public Transform[] playerChild;
 
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
         playerRender = GetComponent<SpriteRenderer>();
         anim = GetComponentInChildren<Animator>();
-        allChilderen = GetComponentsInChildren<Transform>();
+        playerChild = GetComponentsInChildren<Transform>(true);
     }
 
     void Update()
@@ -43,23 +43,13 @@ public class PlayerController : MonoBehaviour
 
         if(InputManager.Instance.Movement.x < 0f) {
             playerRender.flipX = true;
-            foreach(Transform child in allChilderen)
-            {
-                if (child.name == transform.name)
-                    return;
-
-                child.GetComponent<SpriteRenderer>().flipX = true;
-            }
+            playerChild[1].localPosition = new Vector3(0.6f, 0, 0);
+            playerChild[2].localPosition = new Vector3(-2, 0, 0);
         }
         else if(InputManager.Instance.Movement.x > 0f) {
             playerRender.flipX = false;
-            foreach (Transform child in allChilderen)
-            {
-                if (child.name == transform.name)
-                    return;
-
-                child.GetComponent<SpriteRenderer>().flipX = false;
-            }
+            playerChild[1].localPosition = new Vector3(-0.6f, 0, 0);
+            playerChild[2].localPosition = new Vector3(0, 0, 0);
         }
 
         transform.position += rightMovement;
