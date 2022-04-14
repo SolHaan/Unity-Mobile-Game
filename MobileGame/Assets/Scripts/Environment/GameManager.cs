@@ -13,11 +13,11 @@ public class GameManager : Singleton<GameManager>
     [Header("Monster")]
     public GameObject monstersAllObj;
     public GameObject[] bomb;
-    public GameObject[] StageSpawner;
+    public GameObject[] stageSpawner;
+    public GameObject[] fieldBackground;
+    public GameObject[] fieldRoad;
 
-    //[Header("Potal Obj")]
-    //public GameObject uiSet;
-    //public GameObject ChangeSceneImg;
+    public GameObject initialImg;
 
     public int Round;
 }

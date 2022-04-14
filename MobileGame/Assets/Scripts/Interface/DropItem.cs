@@ -8,10 +8,10 @@ public class DropItem : MonoBehaviour, IItem
 
     public void Use()
     {
-        Debug.Log(gameObject.name + "을 얻었다!");
+        //Debug.Log(gameObject.name + "을 얻었다!");
 
         PlayerController player = FindObjectOfType<PlayerController>();
-        player.item += dropObj;
+        //player.item += dropObj;
 
         gameObject.SetActive(false);
     }

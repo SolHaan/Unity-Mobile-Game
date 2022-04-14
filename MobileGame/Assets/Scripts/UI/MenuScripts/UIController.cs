@@ -9,6 +9,7 @@ public class UIController : MonoBehaviour
     public Text level;
     public Slider maxHp;
     public Slider curHp;
+    Dialogue dialogue;
 
     GameObject player;
 
@@ -18,6 +19,7 @@ public class UIController : MonoBehaviour
     void Awake()
     {
         player = GameManager.Instance.player;
+        dialogue = GetComponent<Dialogue>();
     }
 
     void Start()
@@ -32,20 +34,6 @@ public class UIController : MonoBehaviour
         player.GetComponent<SpriteRenderer>().flipX = DataManager.Instance.nowPlayer.playerFilp;
     }
 
-    //레벨업에 따른 레벨 변경과 hp 변경, 아직 안씀
-    public void LevelUp()
-    {
-        DataManager.Instance.nowPlayer.level++; //저장되는 값을 바꿈
-        level.text = "LV." + DataManager.Instance.nowPlayer.level.ToString(); //값에 따른 UI를 바꿈
-    }
-
-    //아직 안씀
-    public void HpUp()
-    {
-        DataManager.Instance.nowPlayer.curHp++;
-        //SaveHpBar(DataManager.Instance.nowPlayer.hp);
-    }
-
     public void Save()
     {
         DataManager.Instance.nowPlayer.playerPos = player.transform.position; //위치 저장
@@ -54,6 +42,8 @@ public class UIController : MonoBehaviour
         {
             DataManager.Instance.SaveData();
         }
+
+        DataManager.Instance.nowPlayer.round = GameManager.Instance.Round;
     }
 
     public void Quit()

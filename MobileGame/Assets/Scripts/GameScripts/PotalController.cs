@@ -3,46 +3,79 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class PotalController : MonoBehaviour
 {
-    public GameObject ChangeSceneImg;
-
     public Vector3 playerFirstPos = new Vector3(-5, -2, 0);
+    int fadeTime = 2;
 
-    int fadeTime = 6;
+    //public GameObject monstersAllObj;
+    //public GameObject[] stageSpawner;
+    //public GameObject[] fieldBackground;
+    //public GameObject[] fieldRoad;
+
+    GameObject img;
+
+    void Start()
+    {
+        img = GameManager.Instance.initialImg;
+    }
 
     public void NextStage()
     {
-        ChangeSceneImg.SetActive(true);
+        img.SetActive(true);
 
-        GameManager.Instance.StageSpawner[GameManager.Instance.Round - 1].SetActive(false);
+        StageSet(GameManager.Instance.Round, false);
+
         GameManager.Instance.Round++;
-        GameManager.Instance.monstersAllObj.SetActive(false);
-        GameManager.Instance.player.transform.position = playerFirstPos;
+
+        if (GameManager.Instance.Round > 3)
+        {
+            SceneManager.LoadScene(3);
+            return;
+        }
 
         Sequence cSequence = DOTween.Sequence();
 
-        cSequence.Append(ChangeSceneImg.GetComponent<Image>().DOFade(1, fadeTime / 2))
-                 .Append(ChangeSceneImg.GetComponent<Image>().DOFade(0, fadeTime / 2));
+        cSequence.Append(img.GetComponent<Image>().DOFade(0, fadeTime).SetDelay(fadeTime))
+                 .Append(img.GetComponent<Image>().DOFade(1, fadeTime));
+
+        DOTween.Kill(transform);
+
+
+        GameManager.Instance.monstersAllObj.SetActive(false);
+        GameManager.Instance.player.transform.position = playerFirstPos;
 
         StartCoroutine(UISetDelay());
     }
 
     IEnumerator UISetDelay()
     {
-        yield return new WaitForSeconds(fadeTime);
-        ChangeSceneImg.SetActive(false);
+        yield return new WaitForSeconds(fadeTime / 2);
+        StageSet(GameManager.Instance.Round, true);
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(fadeTime * 1.5f);
+        img.SetActive(false);
+
+        yield return new WaitForSeconds(fadeTime / 2);
         GameManager.Instance.monstersAllObj.SetActive(true);
-
-        yield return new WaitForSeconds(0.1f);
-        StageMonster(GameManager.Instance.Round);
     }
 
-    void StageMonster(int num)
+    void StageSet(int num, bool isSet)
     {
-        GameManager.Instance.StageSpawner[num - 1].SetActive(true);
+        GameManager.Instance.stageSpawner[num - 1].SetActive(isSet);
+        GameManager.Instance.fieldBackground[num - 1].SetActive(isSet);
+        switch (num)
+        {
+            case 1:
+            case 2:
+                GameManager.Instance.fieldRoad[0].SetActive(isSet);
+                break;
+
+            case 3:
+                GameManager.Instance.fieldRoad[1].SetActive(isSet);
+                break;
+        }
     }
 }

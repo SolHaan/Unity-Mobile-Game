@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    public int item; //나중에 배열로 바꿔야할지도?
-
     //이동
     public float speed;
 
@@ -22,14 +20,16 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rigid;
     SpriteRenderer playerRender;
     Animator anim;
-    public Transform[] playerChild;
+    public GameObject jumpEffect;
+    public GameObject attackZone;
 
-    void Awake()
+    public void Awake()
     {
+        DontDestroyOnLoad(gameObject);
+
         rigid = GetComponent<Rigidbody2D>();
         playerRender = GetComponent<SpriteRenderer>();
         anim = GetComponentInChildren<Animator>();
-        playerChild = GetComponentsInChildren<Transform>(true);
     }
 
     void Update()
@@ -43,13 +43,13 @@ public class PlayerController : MonoBehaviour
 
         if(InputManager.Instance.Movement.x < 0f) {
             playerRender.flipX = true;
-            playerChild[1].localPosition = new Vector3(0.6f, 0, 0);
-            playerChild[2].localPosition = new Vector3(-2, 0, 0);
+            jumpEffect.transform.localPosition = new Vector3(0.6f, 0, 0);
+            attackZone.transform.localPosition = new Vector3(-2, 0, 0);
         }
         else if(InputManager.Instance.Movement.x > 0f) {
             playerRender.flipX = false;
-            playerChild[1].localPosition = new Vector3(-0.6f, 0, 0);
-            playerChild[2].localPosition = new Vector3(0, 0, 0);
+            jumpEffect.transform.localPosition = new Vector3(-0.6f, 0, 0);
+            attackZone.transform.localPosition = new Vector3(0, 0, 0);
         }
 
         transform.position += rightMovement;
@@ -136,11 +136,41 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        if (collision.gameObject.tag == "Monster")
+        if (collision.tag == "Monster")
         {
             MonsterDamage monster = collision.GetComponent<MonsterDamage>();
-            monster.playerDamage();
-            //collision.gameObject.GetComponent<MonsterDamage>().playerDamage();
+            MonsterController.Type type = collision.GetComponent<MonsterController>().type;
+
+            switch (type)
+            {
+                case MonsterController.Type.M1:
+                case MonsterController.Type.M2:
+                case MonsterController.Type.M3:
+                    if(attackZone.activeSelf == true)
+                    {
+                        //col.monstercurHp -= DataManager.Instance.nowPlayer.power;
+                        collision.GetComponent<SpriteRenderer>().color = Color.gray;
+                        StartCoroutine(monsterDamageDelay(collision));
+                        monster.MonsterDead();
+                    }
+                    else
+                    {
+                        monster.playerDamage();
+                    }
+                    break;
+
+                case MonsterController.Type.Bomb:
+                case MonsterController.Type.Trap1:
+                case MonsterController.Type.Trap2:
+                    monster.playerDamage();
+                    break;
+            }
         }
+    }
+
+    IEnumerator monsterDamageDelay(Collider2D col)
+    {
+        yield return new WaitForSeconds(0.2f);
+        col.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
     }
 }

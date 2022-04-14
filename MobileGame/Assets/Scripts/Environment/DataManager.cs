@@ -11,9 +11,9 @@ public class DataManager : Singleton<DataManager>
     public int nowSlot;
 
     // 싱글톤
-    private void Awake()
+    public override void Awake()
     {
-        DontDestroyOnLoad(this.gameObject); //게임 내내 있어야함
+        DontDestroyOnLoad(gameObject);
 
         path = Application.persistentDataPath + "/save"; //
     }

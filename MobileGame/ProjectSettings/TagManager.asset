@@ -8,6 +8,8 @@ TagManager:
   - Potal
   - Monster
   - Enemy
+  - GeneralField
+  - BossField
   layers:
   - Default
   - TransparentFX

@@ -10,16 +10,54 @@ public class Dialogue : MonoBehaviour
 
     public GameObject btnZone;
     public GameObject noTalkSet;
+    //public GameObject enemy01;
+    //public GameObject enemy02;
+    //public GameObject princess;
+
+    public Queue<string> talk01, talk02, talk03;
+    int talkNum = 1;
+
+    void Start()
+    {
+        talk01 = DBManager.Instance.characterTalk01;
+        talk02 = DBManager.Instance.characterTalk02;
+        talk03 = DBManager.Instance.characterTalk03;
+    }
 
     public void NextTalk()
     {
-        if (DBManager.Instance.characterTalk.Count == 0)
+        if (talk01 == null || talk02 == null || talk03 == null)
             return;
 
-        if (DBManager.Instance.characterTalk.Peek().Length == 0 || DBManager.Instance.characterTalk.Peek().Length == 1)
+        switch (talkNum)
+        {
+            case 1:
+                if (talk01.Count == 1)
+                {
+                    btnZone.SetActive(false);
+                    StartCoroutine(Talk01ObjDelay());
+                    //sDataManager.Instance.nowPlayer.dialogueNum++;
+                    return;
+                }
+                NowDialogue(talk01);
+                break;
+
+            case 2:
+                NowDialogue(talk02);
+                break;
+
+            case 3:
+                NowDialogue(talk03);
+                break;
+        }
+    }
+
+    void NowDialogue(Queue<string> talk)
+    {
+        if (talk.Peek().Length == 0 || talk.Peek().Length == 1)
         {
             talkCnt++;
-            DBManager.Instance.characterTalk.Dequeue();
+            talk.Dequeue();
         }
 
         talkCnt++;
@@ -28,30 +66,23 @@ public class Dialogue : MonoBehaviour
         {
             case 1:
                 //talkTxt.text = DataManager.Instance.nowPlayer.playerName + " : " + DBManager.Instance.characterTalk.Peek();
-                talkTxt.text = "플레이어 : " + DBManager.Instance.characterTalk.Peek(); //나중에 위로 바꿀꺼임
+                talkTxt.text = "플레이어 : " + talk.Peek(); //나중에 위로 바꿀꺼임
                 break;
 
             case 2:
-                talkTxt.text = "보스 : " + DBManager.Instance.characterTalk.Peek();
-                if (DBManager.Instance.characterTalk.Peek().Length > 6)
+                talkTxt.text = "보스 : " + talk.Peek();
+                if (talk.Peek().Length > 6)
                 {
-                    StartCoroutine(ExclamationEffect());
                     btnZone.SetActive(false);
+                    StartCoroutine(ExclamationEffect());
                 }
                 break;
 
             case 0:
-                talkTxt.text = "공주 : " + DBManager.Instance.characterTalk.Peek();
+                talkTxt.text = "공주 : " + talk.Peek();
                 break;
         }
-        DBManager.Instance.characterTalk.Dequeue();
-
-        if (talkCnt == 17)
-        {
-            btnZone.SetActive(false);
-            StartCoroutine(TalkObjDelay());
-            return;
-        }
+        talk.Dequeue();
     }
 
     IEnumerator ExclamationEffect()
@@ -68,7 +99,7 @@ public class Dialogue : MonoBehaviour
         btnZone.SetActive(true);
     }
 
-    IEnumerator TalkObjDelay()
+    IEnumerator Talk01ObjDelay()
     {
         yield return new WaitForSeconds(1.5f);
         GameManager.Instance.enemy02.SetActive(false);

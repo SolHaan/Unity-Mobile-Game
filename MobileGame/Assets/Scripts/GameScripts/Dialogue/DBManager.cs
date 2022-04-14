@@ -4,63 +4,52 @@ using UnityEngine;
 using UnityEngine.Networking;
 using System;
 
-public class Character
-{
-    //string player;
-    //string enemy;
-    //string princess;
-
-    Queue<string> player;
-    Queue<string> enemy;
-    Queue<string> princess;
-
-    public Character(Queue<string> _player, Queue<string> _enemy, Queue<string> _princess)
-    {
-        this.player = _player;
-        this.enemy = _enemy;
-        this.princess = _princess;
-    }
-
-    //public Character(string _player, string _enemy, string _princess)
-    //{
-    //    this.player = _player;
-    //    this.enemy = _enemy;
-    //    this.princess = _princess;
-    //}
-
-    public void ShowTalk()
-    {
-        //playerTalk.Enqueue(this.player);
-        //enemyTalk.Enqueue(this.enemy);
-        //princessTalk.Enqueue(this.princess);
-
-        //Debug.Log(playerTalk.Peek());
-        //Debug.Log(enemyTalk.Peek());
-        //Debug.Log(princessTalk.Peek());
-
-        Debug.Log("주인공 : " + this.player);
-        Debug.Log("적 : " + this.enemy);
-        Debug.Log("공주 : " + this.princess);
-    }
-}
-
 public class DBManager : Singleton<DBManager>
 {
-    const string URL = "https://docs.google.com/spreadsheets/d/11Mzqm2A9EfK58SftNQtXxEuipDYEPqPYu4ZIj_Sephc/export?format=csv&range=A2:D";
-    string data;
-    public Dictionary<string, Character> dataTable;
-    public Hashtable dbtable;
+    const string Dialogue01 = "https://docs.google.com/spreadsheets/d/11Mzqm2A9EfK58SftNQtXxEuipDYEPqPYu4ZIj_Sephc/export?format=csv&range=A2:D";
+    const string Dialogue02 = "https://docs.google.com/spreadsheets/d/11Mzqm2A9EfK58SftNQtXxEuipDYEPqPYu4ZIj_Sephc/export?format=csv&gid=1406314912&range=A2:D";
+    const string Dialogue03 = "https://docs.google.com/spreadsheets/d/11Mzqm2A9EfK58SftNQtXxEuipDYEPqPYu4ZIj_Sephc/export?format=csv&gid=29859768&range=A2:D";
+    string data01, data02, data03;
 
-    public Queue<string> characterTalk;
+    public Queue<string> characterTalk01;
+    public Queue<string> characterTalk02;
+    public Queue<string> characterTalk03;
 
     IEnumerator Start()
     {
-        dataTable = new Dictionary<string, Character>();
-        characterTalk = new Queue<string>();
+        characterTalk01 = new Queue<string>();
+        characterTalk02 = new Queue<string>();
+        characterTalk03 = new Queue<string>();
 
-        UnityWebRequest www = UnityWebRequest.Get(URL);
-        yield return www.SendWebRequest();
+        UnityWebRequest www01 = UnityWebRequest.Get(Dialogue01);
+        UnityWebRequest www02 = UnityWebRequest.Get(Dialogue02);
+        UnityWebRequest www03 = UnityWebRequest.Get(Dialogue03);
+        yield return www01.SendWebRequest();
 
+        //
+
+        dataInQ(data01, www01, characterTalk01);
+        dataInQ(data01, www01, characterTalk02);
+        dataInQ(data01, www01, characterTalk03);
+
+        //data01 = www01.downloadHandler.text;
+        //data02 = www01.downloadHandler.text;
+        //data03 = www01.downloadHandler.text;
+
+        //string[] data_line = data01.Split('\n');
+
+        //for (int i = 0; i < data_line.Length; i++)
+        //{
+        //    string[] data_lineSplit = data_line[i].Split(',');
+
+        //    characterTalk01.Enqueue(data_lineSplit[1]);
+        //    characterTalk01.Enqueue(data_lineSplit[2]);
+        //    characterTalk01.Enqueue(data_lineSplit[3]);
+        //}
+    }
+
+    void dataInQ(string data, UnityWebRequest www, Queue<string> talk)
+    {
         data = www.downloadHandler.text;
 
         string[] data_line = data.Split('\n');
@@ -68,19 +57,11 @@ public class DBManager : Singleton<DBManager>
         for (int i = 0; i < data_line.Length; i++)
         {
             string[] data_lineSplit = data_line[i].Split(',');
-            //dataTable.Add(data_lineSplit[0], new Character(data_lineSplit[1], data_lineSplit[2], data_lineSplit[3]));
 
-            characterTalk.Enqueue(data_lineSplit[1]);
-            characterTalk.Enqueue(data_lineSplit[2]);
-            characterTalk.Enqueue(data_lineSplit[3]);
-
-            //dataTable.Add(data_lineSplit[0], new Character(data_lineSplit[1], data_lineSplit[2], data_lineSplit[3]));
+            for (int j = 1; j < data_lineSplit.Length; j++)
+            {
+                talk.Enqueue(data_lineSplit[j]);
+            }
         }
-
-        //foreach (KeyValuePair<string, Character> pair in dataTable)
-        //{
-        //    character = pair.Value;
-        //    character.ShowTalk();
-        //}
     }
 }

@@ -26,9 +26,13 @@ public class MonsterController : MonoBehaviour
                 break;
 
             case Type.Bomb:
+                gameObject.transform.localPosition = new Vector3(0, 0, 0);
+
                 mSequence.Append(gameObject.transform.DOMoveX(gameObject.transform.position.x, 0).SetDelay(bombDelayTime))
                          .Append(gameObject.transform.DOLocalMoveX(-50, bombDuration).SetLoops(-1))
                          .Append(gameObject.transform.DOMoveX(gameObject.transform.position.x, 0));
+
+                DOTween.Kill(transform);
 
                 StartCoroutine(BombDelay());
                 break;
@@ -47,17 +51,16 @@ public class MonsterController : MonoBehaviour
     {
         yield return new WaitForSeconds(bombDelayTime + bombDuration);
 
-        if (gameObject == GameManager.Instance.bomb[0])
+        for (int i = 0; i < GameManager.Instance.bomb.Length; i++)
         {
-            GameManager.Instance.bomb[0].SetActive(false);
-
-            GameManager.Instance.bomb[1].SetActive(true);
-        }
-        else if (gameObject == GameManager.Instance.bomb[1])
-        {
-            GameManager.Instance.bomb[1].SetActive(false);
-
-            GameManager.Instance.bomb[0].SetActive(true);
+            if(gameObject == GameManager.Instance.bomb[i])
+            {
+                GameManager.Instance.bomb[i].SetActive(false);
+            }
+            else
+            {
+                GameManager.Instance.bomb[i].SetActive(true);
+            }
         }
     }
 }

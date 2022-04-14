@@ -8,6 +8,6 @@ public class MonsterCreate : MonoBehaviour
     {
         GameManager.Instance.monstersAllObj.SetActive(true);
 
-        GameManager.Instance.StageSpawner[0].SetActive(true);
+        GameManager.Instance.stageSpawner[0].SetActive(true);
     }
 }
