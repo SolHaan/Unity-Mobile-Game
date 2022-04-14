@@ -18,7 +18,14 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        if(target != null)
+        if (GameManager.Instance.Round > 3)
+        {
+            speed = 0;
+            maxX = 0;
+            gameObject.transform.position = new Vector3(minX, minY, transform.position.z);
+        }
+
+        if (target != null)
         {
             float clampedX = Mathf.Clamp(target.position.x, minX, maxX);
             float clampedY = Mathf.Clamp(target.position.y, minY, maxY);

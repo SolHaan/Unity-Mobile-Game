@@ -15,8 +15,6 @@ public class MonsterController : MonoBehaviour
 
     void OnEnable()
     {
-        Sequence mSequence = DOTween.Sequence();
-
         switch (type)
         {
             case Type.M1:
@@ -28,11 +26,11 @@ public class MonsterController : MonoBehaviour
             case Type.Bomb:
                 gameObject.transform.localPosition = new Vector3(0, 0, 0);
 
+                Sequence mSequence = DOTween.Sequence();
+
                 mSequence.Append(gameObject.transform.DOMoveX(gameObject.transform.position.x, 0).SetDelay(bombDelayTime))
                          .Append(gameObject.transform.DOLocalMoveX(-50, bombDuration).SetLoops(-1))
                          .Append(gameObject.transform.DOMoveX(gameObject.transform.position.x, 0));
-
-                DOTween.Kill(transform);
 
                 StartCoroutine(BombDelay());
                 break;

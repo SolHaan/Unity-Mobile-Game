@@ -25,8 +25,6 @@ public class PlayerController : MonoBehaviour
 
     public void Awake()
     {
-        DontDestroyOnLoad(gameObject);
-
         rigid = GetComponent<Rigidbody2D>();
         playerRender = GetComponent<SpriteRenderer>();
         anim = GetComponentInChildren<Animator>();
@@ -34,7 +32,14 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        Move();
+        if(GameManager.Instance.initialImg.activeSelf == false)
+        {
+            Move();
+        }
+        else
+        {
+            anim.SetInteger("stat", 0);
+        }
     }
 
     public void Move()
@@ -68,6 +73,7 @@ public class PlayerController : MonoBehaviour
     {
         if (jumpCount < limitJumpCount)
         {
+            rigid.constraints = RigidbodyConstraints2D.None;
             jumpCount++;
             rigid.AddForce(Vector2.up * jumpHeight * speed, ForceMode2D.Impulse);
             StartCoroutine(JumpAnim());
@@ -79,6 +85,9 @@ public class PlayerController : MonoBehaviour
         anim.SetTrigger("doJump");
         yield return new WaitForSeconds(0.5f);
         jumpCount = 0;
+
+        yield return new WaitForSeconds(0.5f);
+        rigid.constraints = RigidbodyConstraints2D.FreezePositionY;
     }
 
     public void Attack()
@@ -119,8 +128,10 @@ public class PlayerController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         IItem item = collision.GetComponent<IItem>();
+        MonsterDamage monster = collision.GetComponent<MonsterDamage>();
+        Enemy enemy = collision.GetComponent<Enemy>();
 
-        if(item != null)
+        if (item != null)
         {
             item.Use();
         }
@@ -129,16 +140,27 @@ public class PlayerController : MonoBehaviour
         {
             PotalController potal = collision.GetComponent<PotalController>();
             potal.NextStage();
+            StartCoroutine(potalDelay(collision));
         }
 
         if (collision.gameObject.tag == "Enemy")
         {
-
+            if (attackZone.activeSelf == true)
+            {
+                //Debug.Log("´ê¾Ò³ª");
+                //col.monstercurHp -= DataManager.Instance.nowPlayer.power;
+                collision.GetComponent<SpriteRenderer>().color = Color.yellow;
+                StartCoroutine(enemyDamageDelay(collision));
+                enemy.EnemyDead();
+            }
+            else
+            {
+                enemy.EnemyDamage();
+            }
         }
 
         if (collision.tag == "Monster")
         {
-            MonsterDamage monster = collision.GetComponent<MonsterDamage>();
             MonsterController.Type type = collision.GetComponent<MonsterController>().type;
 
             switch (type)
@@ -149,7 +171,7 @@ public class PlayerController : MonoBehaviour
                     if(attackZone.activeSelf == true)
                     {
                         //col.monstercurHp -= DataManager.Instance.nowPlayer.power;
-                        collision.GetComponent<SpriteRenderer>().color = Color.gray;
+                        collision.GetComponent<SpriteRenderer>().color = Color.yellow;
                         StartCoroutine(monsterDamageDelay(collision));
                         monster.MonsterDead();
                     }
@@ -166,6 +188,18 @@ public class PlayerController : MonoBehaviour
                     break;
             }
         }
+    }
+
+    IEnumerator potalDelay(Collider2D col)
+    {
+        yield return new WaitForSeconds(2f);
+        rigid.constraints = RigidbodyConstraints2D.None;
+    }
+
+    IEnumerator enemyDamageDelay(Collider2D col)
+    {
+        yield return new WaitForSeconds(0.2f);
+        col.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
     }
 
     IEnumerator monsterDamageDelay(Collider2D col)

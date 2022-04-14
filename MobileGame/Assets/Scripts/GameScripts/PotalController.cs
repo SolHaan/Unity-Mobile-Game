@@ -10,11 +10,6 @@ public class PotalController : MonoBehaviour
     public Vector3 playerFirstPos = new Vector3(-5, -2, 0);
     int fadeTime = 2;
 
-    //public GameObject monstersAllObj;
-    //public GameObject[] stageSpawner;
-    //public GameObject[] fieldBackground;
-    //public GameObject[] fieldRoad;
-
     GameObject img;
 
     void Start()
@@ -28,24 +23,25 @@ public class PotalController : MonoBehaviour
 
         StageSet(GameManager.Instance.Round, false);
 
-        GameManager.Instance.Round++;
+        GameManager.Instance.Round ++;
 
         if (GameManager.Instance.Round > 3)
         {
-            SceneManager.LoadScene(3);
+            Debug.Log(GameManager.Instance.Round);
+            //GameManager.Instance.player.GetComponent<PlayerController>().
+            GameManager.Instance.dialogue++;
+            StartCoroutine(BossStageSet());
             return;
         }
 
-        Sequence cSequence = DOTween.Sequence();
+        Sequence nSequence = DOTween.Sequence();
 
-        cSequence.Append(img.GetComponent<Image>().DOFade(0, fadeTime).SetDelay(fadeTime))
+        nSequence.Append(img.GetComponent<Image>().DOFade(0, fadeTime).SetDelay(fadeTime))
                  .Append(img.GetComponent<Image>().DOFade(1, fadeTime));
-
-        DOTween.Kill(transform);
-
 
         GameManager.Instance.monstersAllObj.SetActive(false);
         GameManager.Instance.player.transform.position = playerFirstPos;
+        GameManager.Instance.player.GetComponent<BoxCollider2D>().enabled = true;
 
         StartCoroutine(UISetDelay());
     }
@@ -53,12 +49,10 @@ public class PotalController : MonoBehaviour
     IEnumerator UISetDelay()
     {
         yield return new WaitForSeconds(fadeTime / 2);
-        StageSet(GameManager.Instance.Round, true);
+        StageSet(GameManager.Instance.Round - 1, true);
 
         yield return new WaitForSeconds(fadeTime * 1.5f);
         img.SetActive(false);
-
-        yield return new WaitForSeconds(fadeTime / 2);
         GameManager.Instance.monstersAllObj.SetActive(true);
     }
 
@@ -77,5 +71,27 @@ public class PotalController : MonoBehaviour
                 GameManager.Instance.fieldRoad[1].SetActive(isSet);
                 break;
         }
+    }
+
+    IEnumerator BossStageSet()
+    {
+        GameManager.Instance.frame.SetActive(false);
+        GameManager.Instance.generalStage.SetActive(false);
+        GameManager.Instance.noTalk.SetActive(false);
+
+        GameManager.Instance.talk.SetActive(true);
+        GameManager.Instance.bossStage.SetActive(true);
+
+        Sequence nSequence = DOTween.Sequence();
+
+        nSequence.Append(img.GetComponent<Image>().DOFade(0, fadeTime).SetDelay(fadeTime))
+                 .Append(img.GetComponent<Image>().DOFade(1, fadeTime));
+
+        GameManager.Instance.monstersAllObj.SetActive(false);
+        GameManager.Instance.player.transform.position = playerFirstPos;
+        GameManager.Instance.player.GetComponent<BoxCollider2D>().enabled = true;
+
+        yield return new WaitForSeconds(fadeTime * 1.5f);
+        img.SetActive(false);
     }
 }

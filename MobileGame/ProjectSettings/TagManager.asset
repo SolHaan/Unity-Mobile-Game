@@ -62,3 +62,6 @@ TagManager:
   - name: Frame
     uniqueID: 1346968153
     locked: 0
+  - name: Ending
+    uniqueID: 2167875941
+    locked: 0

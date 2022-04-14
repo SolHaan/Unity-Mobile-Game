@@ -17,7 +17,19 @@ public class GameManager : Singleton<GameManager>
     public GameObject[] fieldBackground;
     public GameObject[] fieldRoad;
 
+    [Header("Boss")]
+    public GameObject frame;
+    public GameObject generalStage;
+    public GameObject bossStage;
+    public GameObject noTalk;
+    public GameObject talk;
+    public GameObject boss;
+    public GameObject prison;
+
+    public GameObject endingImg;
+
     public GameObject initialImg;
 
     public int Round;
+    public int dialogue;
 }
