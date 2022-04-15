@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     //АјАн
     int attackCount = 0;
     public GameObject attackBtn;
+    public GameObject Nextbtn;
 
     Rigidbody2D rigid;
     SpriteRenderer playerRender;
@@ -138,9 +139,9 @@ public class PlayerController : MonoBehaviour
 
         if(collision.gameObject.tag == "Potal")
         {
-            PotalController potal = collision.GetComponent<PotalController>();
-            potal.NextStage();
-            StartCoroutine(potalDelay(collision));
+            //PotalController potal = collision.GetComponent<PotalController>();
+            //potal.NextStage();
+            Nextbtn.SetActive(true);
         }
 
         if (collision.gameObject.tag == "Enemy")
@@ -188,12 +189,6 @@ public class PlayerController : MonoBehaviour
                     break;
             }
         }
-    }
-
-    IEnumerator potalDelay(Collider2D col)
-    {
-        yield return new WaitForSeconds(2f);
-        rigid.constraints = RigidbodyConstraints2D.None;
     }
 
     IEnumerator enemyDamageDelay(Collider2D col)

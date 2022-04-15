@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Dialogue : MonoBehaviour
 {
@@ -44,6 +45,7 @@ public class Dialogue : MonoBehaviour
                     btnZone.SetActive(false);
                     StartCoroutine(Talk02ObjDelay());
                     talk01.Dequeue();
+                    talkCnt++;
                     //sDataManager.Instance.nowPlayer.dialogueNum++;
                     return;
                 }
@@ -51,12 +53,10 @@ public class Dialogue : MonoBehaviour
                 break;
 
             case 3:
-                Debug.Log(talkCnt);
-                if (talkCnt == 33)
+                if (talkCnt == 31)
                 {
                     btnZone.SetActive(false);
-                    GameManager.Instance.endingImg.SetActive(true);
-                    //StartCoroutine(Talk03ObjDelay());
+                    StartCoroutine(Talk03ObjDelay());
                     //sDataManager.Instance.nowPlayer.dialogueNum++;
                     return;
                 }
@@ -149,5 +149,15 @@ public class Dialogue : MonoBehaviour
         gameObject.SetActive(false);
         noTalkSet.SetActive(true);
         btnZone.SetActive(true);
+        talkTxt.text = "½Â¸®ÇÑ ¿µ¿õ!!";
+    }
+
+    IEnumerator Talk03ObjDelay()
+    {
+        GameManager.Instance.endingImg.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        gameObject.SetActive(false);
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("LoadScene");
     }
 }

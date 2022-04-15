@@ -26,10 +26,11 @@ public class GameManager : Singleton<GameManager>
     public GameObject boss;
     public GameObject prison;
 
-    public GameObject endingImg;
-
     public GameObject initialImg;
 
     public int Round;
+    public int testint;
     public int dialogue;
+
+    public GameObject endingImg;
 }

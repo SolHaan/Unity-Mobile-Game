@@ -24,11 +24,10 @@ public class PotalController : MonoBehaviour
         StageSet(GameManager.Instance.Round, false);
 
         GameManager.Instance.Round ++;
+        GameManager.Instance.testint ++;
 
         if (GameManager.Instance.Round > 3)
         {
-            Debug.Log(GameManager.Instance.Round);
-            //GameManager.Instance.player.GetComponent<PlayerController>().
             GameManager.Instance.dialogue++;
             StartCoroutine(BossStageSet());
             return;
@@ -49,7 +48,7 @@ public class PotalController : MonoBehaviour
     IEnumerator UISetDelay()
     {
         yield return new WaitForSeconds(fadeTime / 2);
-        StageSet(GameManager.Instance.Round - 1, true);
+        StageSet(GameManager.Instance.Round, true);
 
         yield return new WaitForSeconds(fadeTime * 1.5f);
         img.SetActive(false);
