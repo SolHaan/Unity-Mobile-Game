@@ -16,13 +16,19 @@ public class PlayerController : MonoBehaviour
     //공격
     int attackCount = 0;
     public GameObject attackBtn;
-    public GameObject Nextbtn;
+    public GameObject nextBtn;
+
+    public GameObject reBtn;
 
     Rigidbody2D rigid;
     SpriteRenderer playerRender;
     Animator anim;
     public GameObject jumpEffect;
     public GameObject attackZone;
+
+    //player Stat
+    public Slider playerHp;
+    int playerPower = 10;
 
     public void Awake()
     {
@@ -128,30 +134,29 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        IItem item = collision.GetComponent<IItem>();
+        #region 나중에 추가
+        //IItem item = collision.GetComponent<IItem>();
+        //if (item != null)
+        //{
+        //    item.Use();
+        //}
+        #endregion
         MonsterDamage monster = collision.GetComponent<MonsterDamage>();
         Enemy enemy = collision.GetComponent<Enemy>();
 
-        if (item != null)
-        {
-            item.Use();
-        }
+        MonsterController.Type type = collision.GetComponent<MonsterController>().type;
 
         if(collision.gameObject.tag == "Potal")
         {
-            //PotalController potal = collision.GetComponent<PotalController>();
-            //potal.NextStage();
-            Nextbtn.SetActive(true);
+            nextBtn.SetActive(true);
         }
 
         if (collision.gameObject.tag == "Enemy")
         {
             if (attackZone.activeSelf == true)
             {
-                //Debug.Log("닿았나");
-                //col.monstercurHp -= DataManager.Instance.nowPlayer.power;
                 collision.GetComponent<SpriteRenderer>().color = Color.yellow;
-                StartCoroutine(enemyDamageDelay(collision));
+                StartCoroutine(DamageDelay(collision));
                 enemy.EnemyDead();
             }
             else
@@ -162,44 +167,105 @@ public class PlayerController : MonoBehaviour
 
         if (collision.tag == "Monster")
         {
-            MonsterController.Type type = collision.GetComponent<MonsterController>().type;
-
-            switch (type)
+            if (attackZone.activeSelf == true)
             {
-                case MonsterController.Type.M1:
-                case MonsterController.Type.M2:
-                case MonsterController.Type.M3:
-                    if(attackZone.activeSelf == true)
-                    {
-                        //col.monstercurHp -= DataManager.Instance.nowPlayer.power;
+                switch (type)
+                {
+                    case MonsterController.Type.M1:
+                    case MonsterController.Type.M2:
+                    case MonsterController.Type.M3:
                         collision.GetComponent<SpriteRenderer>().color = Color.yellow;
-                        StartCoroutine(monsterDamageDelay(collision));
+                        StartCoroutine(DamageDelay(collision));
+                        monster.monstercurHp -= playerPower;
                         monster.MonsterDead();
-                    }
-                    else
-                    {
-                        monster.playerDamage();
-                    }
-                    break;
-
-                case MonsterController.Type.Bomb:
-                case MonsterController.Type.Trap1:
-                case MonsterController.Type.Trap2:
+                        break;
+                }
+            }
+            else
+            {
+                if (playerHp.value == 0)
+                {
+                    //죽음
+                    gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                    anim.SetTrigger("doDie");
+                    //게임오버, 재시작 버튼
+                    StartCoroutine(PlayerDieDelay());
+                }
+                else
+                {
                     monster.playerDamage();
-                    break;
+                    PlayerHpDown(type);
+                }
             }
         }
     }
 
-    IEnumerator enemyDamageDelay(Collider2D col)
+    IEnumerator DamageDelay(Collider2D col)
     {
         yield return new WaitForSeconds(0.2f);
         col.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
     }
 
-    IEnumerator monsterDamageDelay(Collider2D col)
+    void PlayerHpDown(MonsterController.Type type)
     {
-        yield return new WaitForSeconds(0.2f);
-        col.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        switch (type)
+        {
+            case MonsterController.Type.M1:
+                playerHp.value -= 10;
+                break;
+
+            case MonsterController.Type.M2:
+                playerHp.value -= 20;
+                break;
+
+            case MonsterController.Type.M3:
+                playerHp.value -= 30;
+                break;
+
+            case MonsterController.Type.Bomb:
+                playerHp.value -= 50;
+                break;
+
+            case MonsterController.Type.Trap1:
+            case MonsterController.Type.Trap2:
+                playerHp.value -= 5;
+                break;
+        }
+
+        //if (playerHp.value == 0)
+        //{
+        //    //죽음
+        //    GameManager.Instance.player.GetComponent<BoxCollider2D>().enabled = false;
+        //    anim.SetTrigger("doDie");
+        //    //게임오버, 재시작 버튼
+        //    StartCoroutine(PlayerDieDelay());
+        //    return;
+        //}
+    }
+
+    IEnumerator PlayerDieDelay()
+    {
+        yield return new WaitForSeconds(2);
+        //재시작 버튼 활성화
+        GameManager.Instance.noTalk.SetActive(false);
+        reBtn.SetActive(true);
+    }
+
+    public void RetryPlayer()
+    {
+        playerHp.value = 100;
+        transform.position = new Vector3(-5, -2, 0);
+        playerRender.flipX = false;
+        anim.SetTrigger("doRevive");
+        GameManager.Instance.noTalk.SetActive(true);
+        gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        StartCoroutine(MonsterSpawnDelay(GameManager.Instance.Round));
+    }
+
+    IEnumerator MonsterSpawnDelay(int num)
+    {
+        GameManager.Instance.stageSpawner[num - 1].SetActive(false);
+        yield return new WaitForSeconds(0.5f);
+        GameManager.Instance.stageSpawner[num - 1].SetActive(true);
     }
 }
